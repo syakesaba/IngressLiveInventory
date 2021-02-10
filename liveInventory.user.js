@@ -318,7 +318,11 @@ ${thisPlugin.keyCount.map((el)=> {
 
 		if (thisPlugin.keyMap && thisPlugin.keyMap[data.portal.options.guid] && !data.portal._keyMarker) {
 			data.portal._keyMarker = L.marker(data.portal._latlng, {
-				icon: thisPlugin.keyIcon,
+                icon: thisPlugin.keyIcon,
+				/*icon: new L.DivIcon({
+                    html:thisPlugin.keyMap[data.portal.options.guid].count,
+                    className: 'plugin-live-inventory-count'
+                }),*/
 				interactive: false,
 				keyboard: false,
 			}).addTo(thisPlugin.layerGroup);
@@ -354,8 +358,22 @@ ${thisPlugin.keyCount.map((el)=> {
 			.text('Inventory')
 			.click(displayInventory)
 			.appendTo($('#toolbox'));
-		window.addHook('portalDetailsUpdated', portalDetailsUpdated);
-		window.addHook('portalAdded', addKeyToLayer);
+
+        $("<style>")
+            .prop("type", "text/css")
+            .html(`.plugin-live-inventory-count {
+font-size: 10px;
+color: #FFFFBB;
+font-family: monospace;
+text-align: center;
+text-shadow: 0 0 1px black, 0 0 1em black, 0 0 0.2em black;
+pointer-events: none;
+-webkit-text-size-adjust:none;
+}`)
+            .appendTo("head");
+
+        window.addHook('portalDetailsUpdated', portalDetailsUpdated);
+        window.addHook('portalAdded', addKeyToLayer);
 		window.addHook('portalRemoved', removeKeyFromLayer);
 		window.map.on('zoom', checkShowAllIcons);
 	}
