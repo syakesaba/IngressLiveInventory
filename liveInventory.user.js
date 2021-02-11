@@ -145,7 +145,7 @@ function wrapper(plugin_info) {
 	}
 
 	function createIcons() {
-		thisPlugin.keyIcon = svgToIcon(`<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-key" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+		thisPlugin.keyIcon = svgToIcon(`<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-key" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <circle cx="8" cy="15" r="4" />
 <line x1="10.85" y1="12.15" x2="19" y2="4" />
 <line x1="18" y1="5" x2="20" y2="7" />
